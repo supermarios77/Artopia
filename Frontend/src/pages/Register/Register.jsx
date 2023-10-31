@@ -57,9 +57,9 @@ const Register = () => {
             <form action="index.html" autoComplete="off" className="sign-in-form">
               <div className="heading">
                 <h2>Get Started</h2>
-                <h6>Already have an account?</h6>
+                <h6>Already have an account? {"   "}</h6>
                 <a href="/login" className="toggle">
-                  Sign in
+                   Sign in
                 </a>
               </div>
               <div className="actual-form">
@@ -130,7 +130,7 @@ const Register = () => {
                 <div className="text-group">
                   <h2>Create Amazing Art</h2>
                   <h2>Share Your Work</h2>
-                  <h2>Join A Community Of 100+ People</h2>
+                  <h2>Join A Community </h2>
                 </div>
               </div>
               <div className="bullets">
