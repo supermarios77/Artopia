@@ -5,6 +5,10 @@
         "destination": "./src/pages/Login/Login.jsx"
       },
       {
+        "source": "/register",
+        "destination": "./src/pages/Register/Register.jsx"
+      },
+      {
         "source": "/(.*)",
         "destination": "/index.html"
       }
