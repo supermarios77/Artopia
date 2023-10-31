@@ -1,0 +1,12 @@
+{
+    "rewrites": [
+      {
+        "source": "/login",
+        "destination": "./src/pages/Login/Login.jsx"
+      },
+      {
+        "source": "/(.*)",
+        "destination": "/index.html"
+      }
+    ]
+  }  
