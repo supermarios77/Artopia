@@ -14,20 +14,23 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #fff;
     width: 100%;
     max-width: 1020px;
     height: fit-content;
     justify-content: center;
+    background: url("../../assets/image1.png") #f27e5e;
 }
 
 h1 {
     margin-bottom: 1.5rem;
+    color: #fff;
+    font-weight: 600;
   }
 
 h2 {
     margin-bottom: 1rem;
     font-weight: 400;
+    color: #fff;
 }
 
 #options {
@@ -40,6 +43,7 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: #fff;
   }
 
 
