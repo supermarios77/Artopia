@@ -8,12 +8,17 @@ main {
 }
 
 #editor {
-    border-radius: 2rem;
+    border-radius: 3.3rem;
+    box-shadow: 0 60px 40px -30px rgba(0, 0, 0, 0.27);
     padding: 2rem 4rem 2rem 4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #fff;
+    width: 100%;
+    max-width: 1020px;
+    height: fit-content;
+    justify-content: center;
 }
 
 h1 {
@@ -90,6 +95,7 @@ h2 {
   
 #pixels {
     margin-bottom: 1rem;
+    border: 2px solid #151111;
 }
 
 /* Pixel CSS */
@@ -104,5 +110,5 @@ h2 {
 .row {
     display: flex;
     width: fit-content;
-  }
+}
   
