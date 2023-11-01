@@ -1,6 +1,7 @@
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import { Routes, Route } from "react-router-dom";
+import Art from "./pages/Art/Art";
 
 
 const App = () => {
@@ -8,6 +9,7 @@ const App = () => {
     <Routes>
       <Route path="/login" Component={Login} />
       <Route path="/register" Component={Register} />
+      <Route path="/art" Component={Art} />
     </Routes>
   )
 }

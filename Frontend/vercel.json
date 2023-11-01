@@ -9,6 +9,10 @@
         "destination": "./src/pages/Register/Register.jsx"
       },
       {
+        "source": "/art",
+        "destination": "./src/pages/Art/Art.jsx"
+      },
+      {
         "source": "/(.*)",
         "destination": "/index.html"
       }
