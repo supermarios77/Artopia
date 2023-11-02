@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Art.css";
-import { CirclePicker } from "react-color";
+import { CirclePicker, SketchPicker } from "react-color";
 import DrawingPanel from "./DrawingPanel";
 
 export default function Art() {
@@ -10,6 +10,8 @@ export default function Art() {
   const [hideDrawingPanel, setHideDrawingPanel] = useState(true);
   const [buttonText, setButtonText] = useState("start drawing");
   const [selectedColor, setColor] = useState("#f44336");
+  const [showColorPicker, setShowColorPicker] = useState(false);
+
 
   function initializeDrawingPanel() {
     setHideOptions(!hideOptions);
@@ -23,55 +25,94 @@ export default function Art() {
   function changeColor(color) {
     setColor(color.hex);
   }
+  
+
+  function fillBucket() {
+    const allPixels = document.querySelectorAll(".pixel");
+    allPixels.forEach((pixel) => {
+      pixel.style.backgroundColor = selectedColor;
+    });
+  }
+  
 
   return (
     <main>
-    <div id="editor">
-      <h1>Pixel Editor</h1>
-      {hideDrawingPanel && <h2>Enter Panel Dimensions</h2>}
-      {hideDrawingPanel && (
-        <div id="options">
-          <div className="option">
-            <input
-              type="number"
-              className="panelInput"
-              defaultValue={panelWidth}
-              onChange={(e) => {
-                setPanelWidth(e.target.value);
-              }}
-            />
-            <span>Width</span>
+      <div id="editor">
+        <h1>Pixel Editor</h1>
+        {hideDrawingPanel && <h2>Enter Panel Dimensions</h2>}
+        {hideDrawingPanel && (
+          <div id="options">
+            <div className="option">
+              <input
+                type="number"
+                className="panelInput"
+                defaultValue={panelWidth}
+                onChange={(e) => {
+                  setPanelWidth(e.target.value);
+                }}
+              />
+              <span>Width</span>
+            </div>
+            <div className="option">
+              <input
+                type="number"
+                className="panelInput"
+                defaultValue={panelHeight}
+                onChange={(e) => {
+                  setPanelHeight(e.target.value);
+                }}
+              />
+              <span>Height</span>
+            </div>
           </div>
-          <div className="option">
-            <input
-              type="number"
-              className="panelInput"
-              defaultValue={panelHeight}
-              onChange={(e) => {
-                setPanelHeight(e.target.value);
-              }}
-            />
-            <span>Height</span>
+        )}
+
+        <button onClick={initializeDrawingPanel} className="button">
+          {buttonText}
+        </button>
+
+       <div className="tools">
+
+        {hideOptions && (
+          <button onClick={fillBucket} className="button1">
+            <i className="fa-solid fa-fill" id="icon"></i>
+          </button>
+        )}
+
+        {hideOptions && (
+          <button onClick={() => setShowColorPicker(!showColorPicker)} className="button1">
+          <i className="fa-solid fa-palette" id="icon"></i>
+        </button>
+        )}
+
+       </div>
+
+        {hideOptions && showColorPicker && (
+          <div className="sketch-picker">
+          <SketchPicker
+            color={selectedColor}
+            onChangeComplete={changeColor}
+            disableHex
+            className="sketch"
+          />
           </div>
-        </div>
-      )}
+        )}
 
-      <button onClick={initializeDrawingPanel} className="button">
-        {buttonText}
-      </button>
 
-      {hideOptions && (
-        <CirclePicker color={selectedColor} onChangeComplete={changeColor} />
-      )}
+        {hideOptions && (
+          <div className={`circle-picker ${showColorPicker ? 'hide-picker' : ''}`}>
+          <CirclePicker color={selectedColor} onChangeComplete={changeColor} />
+        </div>        
+        )}
 
-      {hideOptions && (
-        <DrawingPanel
-          width={panelWidth}
-          height={panelHeight}
-          selectedColor={selectedColor}
-        />
-      )}
-    </div>
+        {hideOptions && (
+          <DrawingPanel
+            width={panelWidth}
+            height={panelHeight}
+            selectedColor={selectedColor}
+          />
+        )}
+      </div>
     </main>
   );
 }

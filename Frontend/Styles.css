@@ -1,0 +1,14 @@
+/* CSS VARIABLES */
+
+:root {
+    --primary-color: #8371fd;
+    --dark-text-color: #000;
+    --secondary-color: #ff8c6b;
+    --light-text-bg-color: #fff;
+    --text-color: #151111;
+    --small-text-color: #bababa;
+    --very-light-color: #bbb;
+    --bullets-color: #aaa;
+    --carousel-background: #ffe0d2;
+    --darker-background: #f27e5e;
+}
