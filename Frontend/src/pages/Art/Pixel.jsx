@@ -4,7 +4,7 @@ import "./Art.css";
 export default function Pixel(props) {
   const { selectedColor } = props;
 
-  const [pixelColor, setPixelColor] = useState("#fff");
+  const [pixelColor, setPixelColor] = useState("var(--light-text-bg-color)");
   const [oldColor, setOldColor] = useState(pixelColor);
   const [canChangeColor, setCanChangeColor] = useState(true);
 

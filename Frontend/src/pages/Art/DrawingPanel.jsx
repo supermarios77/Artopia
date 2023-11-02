@@ -16,7 +16,7 @@ export default function DrawingPanel(props) {
 
   return (
     <div id="drawingPanel">
-      <div id="pixels" ref={panelRef}>
+      <div id="pixels" ref={panelRef} style={{ backgroundColor: selectedColor}}>
         {rows}
       </div>
       <button onClick={() => exportComponentAsPNG(panelRef)} className="button">

@@ -6,7 +6,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  color: #000;
+  color: var(--dark-text-color);
 }
 
 body,
@@ -19,7 +19,7 @@ main {
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
-  background-color: #ff8c6b;
+  background-color: var(--secondary-color);
   padding: 2rem;
   display: flex;
   align-items: center;
@@ -31,7 +31,7 @@ main {
   width: 100%;
   max-width: 1020px;
   height: 640px;
-  background-color: #fff;
+  background-color: var(--light-text-bg-color);
   border-radius: 3.3rem;
   box-shadow: 0 60px 40px -30px rgba(0, 0, 0, 0.27);
 }
@@ -46,7 +46,7 @@ main {
 }
 
 h2 {
-  color: #000;
+  color: var(--dark-text-color);
 }
 
 .forms-wrap {
@@ -93,24 +93,24 @@ form.sign-up-form {
   font-size: 1.1rem;
   margin-top: -9px;
   letter-spacing: -0.5px;
-  color: #151111;
+  color: var(--text-color);
 }
 
 .heading h2 {
   font-size: 2.1rem;
   font-weight: 600;
-  color: #151111;
+  color: var(--text-color);
 }
 
 .heading h6 {
-  color: #bababa;
+  color: var(--small-text-color);
   font-weight: 400;
   font-size: 0.75rem;
   display: inline;
 }
 
 .toggle {
-  color: #151111;
+  color: var(--text-color);
   text-decoration: none;
   font-size: 0.75rem;
   font-weight: 500;
@@ -118,7 +118,7 @@ form.sign-up-form {
 }
 
 .toggle:hover {
-  color: #8371fd;
+  color: var(--primary-color);
 }
 
 .input-wrap {
@@ -134,10 +134,10 @@ form.sign-up-form {
   background: none;
   border: none;
   outline: none;
-  border-bottom: 1px solid #bbb;
+  border-bottom: 1px solid var(--very-light-color);
   padding: 0;
   font-size: 0.95rem;
-  color: #151111;
+  color: var(--text-color);
   transition: 0.4s;
 }
 
@@ -147,13 +147,13 @@ label {
   top: 50%;
   transform: translateY(-50%);
   font-size: 0.95rem;
-  color: #bbb;
+  color: var(--very-light-color);
   pointer-events: none;
   transition: 0.4s;
 }
 
 .input-field.active {
-  border-bottom-color: #151111;
+  border-bottom-color: var(--text-color);
 }
 
 .input-field.active + label {
@@ -165,8 +165,8 @@ label {
   display: inline-block;
   width: 100%;
   height: 43px;
-  background-color: #151111;
-  color: #fff;
+  background-color: var(--text-color);
+  color: var(--light-text-bg-color);
   border: none;
   cursor: pointer;
   border-radius: 0.8rem;
@@ -176,21 +176,21 @@ label {
 }
 
 .sign-btn:hover {
-  background-color: #8371fd;
+  background-color: var(--primary-color);
 }
 
 .text {
-  color: #bbb;
+  color: var(--very-light-color);
   font-size: 0.7rem;
 }
 
 .text a {
-  color: #bbb;
+  color: var(--very-light-color);
   transition: 0.3s;
 }
 
 .text a:hover {
-  color: #8371fd;
+  color: var(--primary-color);
 }
 
 main.sign-up-mode form.sign-in-form {
@@ -217,7 +217,7 @@ main.sign-up-mode .carousel {
   width: 55%;
   left: 45%;
   top: 0;
-  background-color: #ffe0d2;
+  background-color: var(--carousel-background);
   border-radius: 2rem;
   display: grid;
   grid-template-rows: auto 1fr;
@@ -294,7 +294,7 @@ main.sign-up-mode .carousel {
   display: block;
   width: 0.5rem;
   height: 0.5rem;
-  background-color: #aaa;
+  background-color: var(--bullets-color);
   margin: 0 0.25rem;
   border-radius: 50%;
   cursor: pointer;
@@ -303,7 +303,7 @@ main.sign-up-mode .carousel {
 
 .bullets span.active {
   width: 1.1rem;
-  background-color: #151111;
+  background-color: var(--text-color);
   border-radius: 1rem;
 }
 
