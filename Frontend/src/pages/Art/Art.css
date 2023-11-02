@@ -5,6 +5,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #fff;
 }
 
 #editor {
@@ -37,6 +38,7 @@ h2 {
     display: flex;
     margin-bottom: 3rem;
     justify-content: center;
+    color: #fff;
 }
 
 .option {
@@ -87,6 +89,10 @@ h2 {
 
 .circle-picker {
     margin-bottom: 1.5rem !important;
+}
+
+.option span {
+    color: #fff;
 }
 
 /* Drawing Panel */
