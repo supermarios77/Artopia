@@ -11,4 +11,5 @@
     --bullets-color: #aaa;
     --carousel-background: #ffe0d2;
     --darker-background: #f27e5e;
+    --gradient-color: linear-gradient(to right, #e2336b, #fcac46);
 }

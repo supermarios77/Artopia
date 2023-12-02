@@ -1,5 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 
+.success-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(76, 175, 80, 0.9); /* Green color with some transparency */
+  color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  z-index: 999; /* Ensure it appears above other elements */
+  transition: opacity 0.5s ease-in-out;
+
+  /* Additional styles for better appearance */
+  max-width: 300px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.success-popup p {
+  margin: 0;
+}
+
+.success-popup.closed {
+  opacity: 0;
+}
+
 *,
 *::before,
 *::after {

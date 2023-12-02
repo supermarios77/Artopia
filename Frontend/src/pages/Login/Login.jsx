@@ -1,16 +1,57 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
-import logo from "../../assets/ArtopiaLogo.jpg";
-import image1 from "../../assets/image1.png";
-import image2 from "../../assets/image2.png";
+import logo from "../../assets/images/ArtopiaLogo.jpg";
+import image1 from "../../assets/images/image1.png";
+import image2 from "../../assets/images/image2.png";
 
 const Login = () => {
+  const navigate = useNavigate();
+
   const [activeSlide, setActiveSlide] = useState(1);
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
   const handleBulletClick = (index) => {
     setActiveSlide(index);
+  };
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      // Replace with your actual login endpoint
+      const response = await fetch("http://localhost:5000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username: name, password }),
+      });
+
+      if (response.ok) {
+        setShowSuccessPopup(true);
+        setTimeout(() => {
+          setShowSuccessPopup(false);
+          // Redirect to the home page
+          navigate("/");
+        }, 3000); // Close the popup after 3 seconds
+      } else {
+        // Handle unsuccessful login
+        console.error("Login failed");
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+    }
   };
 
   useEffect(() => {
@@ -37,115 +78,59 @@ const Login = () => {
     });
   }, [activeSlide]);
 
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-
   return (
     <main className="main">
       <div className="box">
         <div className="inner-box">
-          <div className="forms-wrap">
-            <form action="index.html" autoComplete="off" className="sign-in-form">
-              <div className="logo">
-                <img src={logo} alt="Artopia" />
-                <h4>Artopia</h4>
+          <form
+            action="index.html"
+            autoComplete="off"
+            className="sign-in-form"
+            onSubmit={handleLogin}
+          >
+            <div className="logo">
+              <img src={logo} alt="Artopia" />
+              <h4>Artopia</h4>
+            </div>
+            <div className="heading">
+              <h2>Welcome Back</h2>
+              <h6>Not Registered Yet? </h6>
+              <a href="/register" className="toggle">
+                Sign up
+              </a>
+            </div>
+            <div className="actual-form">
+              <div className="input-wrap">
+                <input
+                  type="text"
+                  minLength="4"
+                  className={`input-field ${name && "active"}`}
+                  autoComplete="off"
+                  required
+                  value={name}
+                  onChange={handleNameChange}
+                />
+                <label>Name</label>
               </div>
-              <div className="heading">
-                <h2>Welcome Back</h2>
-                <h6>Not Registered Yet? </h6>
-                <a href="/register" className="toggle">
-                  Sign up
-                </a>
+              <div className="input-wrap">
+                <input
+                  type="password"
+                  minLength="4"
+                  className={`input-field ${password && "active"}`}
+                  autoComplete="off"
+                  required
+                  value={password}
+                  onChange={handlePasswordChange}
+                />
+                <label>Password</label>
               </div>
-              <div className="actual-form">
-                <div className="input-wrap">
-                  <input
-                    type="text"
-                    minLength="4"
-                    className={`input-field ${name && "active"}`}
-                    autoComplete="off"
-                    required
-                    value={name}
-                    onChange={handleNameChange}
-                  />
-                  <label>Name</label>
-                </div>
-                <div className="input-wrap">
-                  <input
-                    type="password"
-                    minLength="4"
-                    className={`input-field ${password && "active"}`}
-                    autoComplete="off"
-                    required
-                    value={password}
-                    onChange={handlePasswordChange}
-                  />
-                  <label>Password</label>
-                </div>
-                <input type="submit" value="Sign In" className="sign-btn" />
-                <p className="text">
-                  Forgotten your password or your login details?{" "}
-                  <a href="#">Get help</a> signing in
-                </p>
-              </div>
-            </form>
-
-            <form action="index.html" autoComplete="off" className="sign-up-form">
-              <div className="logo">
-                <img src="./img/logo.png" alt="easyclassName" />
-                <h4>easyclassName</h4>
-              </div>
-              <div className="heading">
-                <h2>Get Started</h2>
-                <h6>Already have an account? </h6>
-                <a href="#" className="toggle">
-                  Sign in
-                </a>
-              </div>
-              <div className="actual-form">
-                <div className="input-wrap">
-                  <input
-                    type="text"
-                    minLength="10"
-                    className="input-field"
-                    autoComplete="off"
-                    required
-                  />
-                  <label>Name</label>
-                </div>
-                <div className="input-wrap">
-                  <input
-                    type="email"
-                    className="input-field"
-                    autoComplete="off"
-                    required
-                  />
-                  <label>Email</label>
-                </div>
-                <div className="input-wrap">
-                  <input
-                    type="password"
-                    minLength="4"
-                    className="input-field"
-                    autoComplete="off"
-                    required
-                  />
-                  <label>Password</label>
-                </div>
-                <input type="submit" value="Sign Up" className="sign-btn" />
-                <p className="text">
-                  By signing up, I agree to the{" "}
-                  <a href="#">Terms of Services</a> and{" "}
-                  <a href="#">Privacy Policy</a>
-                </p>
-              </div>
-            </form>
-          </div>
+              <input type="submit" value="Sign In" className="sign-btn" />
+              <p className="text">
+                Forgotten your password or your login details?{" "}
+                <a href="#">Get help</a> signing in
+              </p>
+            </div>
+          </form>
 
           <div className="carousel">
             <div className="images-wrapper">
@@ -194,6 +179,11 @@ const Login = () => {
           </div>
         </div>
       </div>
+      {showSuccessPopup && (
+        <div className={`success-popup ${showSuccessPopup ? "" : "closed"}`}>
+          <p>Login successful! Redirecting...</p>
+        </div>
+      )}
     </main>
   );
 };

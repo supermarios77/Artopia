@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
+import axios from "axios";
 import "./Register.css";
-import image1 from "../../assets/image1.png";
-import image2 from "../../assets/image2.png";
+import image1 from "../../assets/images/image1.png";
+import image2 from "../../assets/images/image2.png";
 
 const Register = () => {
   const [activeSlide, setActiveSlide] = useState(1);
@@ -13,29 +14,22 @@ const Register = () => {
     setActiveSlide(index);
   };
 
-  useEffect(() => {
-    const images = document.querySelectorAll(".image");
-    const textSlider = document.querySelector(".text-group");
-    const bullets = document.querySelectorAll(".bullets span");
+  const handleRegistration = async (e) => {
+    e.preventDefault();
 
-    images.forEach((img, index) => {
-      if (index + 1 === activeSlide) {
-        img.classList.add("show");
-      } else {
-        img.classList.remove("show");
-      }
-    });
+    try {
+      const response = await axios.post("http://localhost:5000/register", {
+        username: name,
+        email: email,
+        password: password,
+      });
 
-    textSlider.style.transform = `translateY(${-(activeSlide - 1) * 2.2}rem)`;
-
-    bullets.forEach((bull, index) => {
-      if (index + 1 === activeSlide) {
-        bull.classList.add("active");
-      } else {
-        bull.classList.remove("active");
-      }
-    });
-  }, [activeSlide]);
+      console.log(response.data); // Handle success response, e.g., show a success message or redirect
+    } catch (error) {
+      console.error("Registration failed:", error.response.data.error);
+      // Handle error, e.g., show an error message to the user
+    }
+  };
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -54,7 +48,7 @@ const Register = () => {
       <div className="box">
         <div className="inner-box">
           <div className="forms-wrap">
-            <form action="index.html" autoComplete="off" className="sign-in-form">
+            <form onSubmit={handleRegistration} autoComplete="off" className="sign-in-form">
               <div className="heading">
                 <h2>Get Started</h2>
                 <h6>Already have an account? {"   "}</h6>
