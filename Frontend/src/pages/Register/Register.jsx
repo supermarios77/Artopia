@@ -18,7 +18,7 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("https://artopia-production.up.railway.app/register", {
+      const response = await axios.post("http://localhost:5000/register", {
         username: name,
         email: email,
         password: password,
