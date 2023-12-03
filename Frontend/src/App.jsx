@@ -4,6 +4,7 @@ import Register from "./pages/Register/Register";
 import Art from "./pages/Art/Art";
 import Home from "./pages/Home/Home";
 import SideBar from "./components/SideBar/SideBar";
+import Dashboard from "./pages/Dashboard/Dashboard";
 
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
       <Route path="/register" Component={Register} />
       <Route path="/art" Component={Art} />
       <Route path="/" Component={Home} />
+      <Route path="/dashboard" Component={Dashboard} />
     </Routes>
     </div>
   )

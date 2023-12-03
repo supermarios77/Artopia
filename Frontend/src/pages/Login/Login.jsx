@@ -39,12 +39,13 @@ const Login = () => {
       });
 
       if (response.ok) {
+
         setShowSuccessPopup(true);
         setTimeout(() => {
-          setShowSuccessPopup(false);
-          // Redirect to the home page
-          navigate("/");
-        }, 3000); // Close the popup after 3 seconds
+            setShowSuccessPopup(false);
+            // Redirect to the dashboard
+            navigate('/dashboard');
+        }, 3000);
       } else {
         // Handle unsuccessful login
         console.error("Login failed");
@@ -85,7 +86,7 @@ const Login = () => {
           <form
             action="index.html"
             autoComplete="off"
-            className="sign-in-form"
+            className="forms-wrap"
             onSubmit={handleLogin}
           >
             <div className="logo">
