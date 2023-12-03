@@ -29,7 +29,6 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      // Replace with your actual login endpoint
       const response = await fetch("http://localhost:5000/login", {
         method: "POST",
         headers: {

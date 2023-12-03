@@ -4,7 +4,6 @@ const Dashboard = ({ userId }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // Fetch user details using the userId
     const fetchUserDetails = async () => {
       try {
         const response = await fetch(`http://localhost:5000/user/${userId}`);

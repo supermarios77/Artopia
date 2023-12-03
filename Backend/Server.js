@@ -30,7 +30,7 @@ const userSchema = new mongoose.Schema({
     username: String,
     hashedPassword: String,
     email: String,
-    profilePicture: { type: String, default: 'https://prod-cms.scouts.org.uk/media/14811/panda.png?width=1800' },
+    profilePicture: { type: String, default: './public/default.png' },
     feed: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Post' }],
     followers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
     following: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
@@ -96,14 +96,13 @@ app.get('/user/:userId/feed', async (req, res) => {
     }
 });
 
-// Fetch user's followers
 app.get('/user/:userId/followers', async (req, res) => {
-    // Similar implementation to fetch followers
+  
 });
 
-// Fetch user's following
+
 app.get('/user/:userId/following', async (req, res) => {
-    // Similar implementation to fetch following
+
 });
 
 

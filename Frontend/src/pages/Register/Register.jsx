@@ -24,10 +24,9 @@ const Register = () => {
         password: password,
       });
 
-      console.log(response.data); // Handle success response, e.g., show a success message or redirect
+      console.log(response.data); 
     } catch (error) {
       console.error("Registration failed:", error.response.data.error);
-      // Handle error, e.g., show an error message to the user
     }
   };
 
